@@ -1,7 +1,6 @@
 const addPoint = document.querySelector('#add-point');
 const calculatePath = document.querySelector('#calculate');
 
-
 calculatePath.addEventListener('click', calculateHypot);
 addPoint.addEventListener('click', createInputs)
 
@@ -31,39 +30,42 @@ function calculateHypot() {
   const inputValuesY = Array.from(document.querySelectorAll('.coordinate-y'));
   const valuesX = inputValuesX.map(item => parseFloat(item.value))
   const valuesY = inputValuesY.map(item => parseFloat(item.value))
-  createPointsObject(valuesX, valuesY)
+  createPointsObject(valuesX, valuesY);
+  showCombinations()
 }
 
 function createPointsObject(x, y) {
-  return Math.hypot(x[1] - x[0], y[1] - y[0]))
+  return Math.hypot(x[1] - x[0], y[1] - y[0]);
 }
 
-function showCombinations(Arr){
-  var permutations = [];
-  var A = Arr.slice();
+function showCombinations(){
+  const pointsElements = Array.from(document.querySelectorAll('.coordinates-set'));
+  const pointsArray = pointsElements.map(item => parseInt(item.id))
+  let combinations = [];
+  let array = pointsArray.slice();
 
   function swap(a,b){
-    var tmp = A[a];
-    A[a] = A[b];
-    A[b] = tmp;
+    let temporary = array[a];
+    array[a] = array[b];
+    array[b] = temporary;
   }
 
   function generate(n, A){
     if (n == 1){
-      permutations.push(A.slice());
+      combinations.push(array.slice());
     } else {
       for(var i = 0; i <= n-1; i++) {
-        generate(n-1, A);
+        generate(n-1, array);
         swap(n % 2 == 0 ? i : 0 ,n-1);
       }
     }
   }
-  generate(A.length, A);
-  return permutations;
+  generate(array.length, array);
+  console.log(combinations);
 }
 
 
-function showAllPaths(points){
+function showAllPaths(pointsArray){
   var pointsArray = generatePermutations(points.slice(1));
   for (var i = 0; i < pointsArray.length; i++){
     pointsArray[i].unshift(points[0]);
