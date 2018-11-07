@@ -1,7 +1,7 @@
 const addPoint = document.querySelector('#add-point');
 const calculatePath = document.querySelector('#calculate');
 
-calculatePath.addEventListener('click', calculateHypot);
+calculatePath.addEventListener('click', calculateDistances);
 addPoint.addEventListener('click', createInputs)
 
 let counter = 1;
@@ -25,13 +25,18 @@ function createInputs() {
   counter += 1;
 }
 
-function calculateHypot() {
+function calculateDistances() {
+  const paths = showAllPaths()
+  console.log(paths);
+
   const inputValuesX = Array.from(document.querySelectorAll('.coordinate-x'));
   const inputValuesY = Array.from(document.querySelectorAll('.coordinate-y'));
   const valuesX = inputValuesX.map(item => parseFloat(item.value))
   const valuesY = inputValuesY.map(item => parseFloat(item.value))
-  createPointsObject(valuesX, valuesY);
-  showAllPaths()
+  console.log(valuesX)
+  console.log(valuesY)
+  const pointsObjects = valuesX.map((x, index) => ({ id: index, x: x, y: valuesY[index]}))
+  console.log(pointsObjects)
 }
 
 function createPointsObject(x, y) {
