@@ -7,7 +7,37 @@
   </head>
 
   <body>
-    
+  <header>
+    <div class="topbar">
+      <h1>Traveling Salesman Problem</h1>
+      <p></p>
+    </div>
+  </header>
+  <main>
+    <div class="main-content">
+      <div class="coordinates-form">
+        <h3>Type coordinates</h3>
+        <div class="content coordinates-values">
+          <label>
+            X
+            <input type="text" class="coordinate-x">
+          </label>
+          <label>
+            Y
+            <input type="text" class="coordinate-y">
+          </label>
+        </div>
+        <div class="content buttons">
+          <button type="button">Add Point</button>
+          <button type="button">Calculate Path</button>
+        </div>
+      </div>
+      <div class="result-container">
+        <p>The order of points is: </p>
+        <p>The distance is: </p>
+      </div>
+    </div>
+  </main>
   <script src="assets/main.js"></script>
   </body>
 </html>
