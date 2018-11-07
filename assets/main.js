@@ -4,7 +4,7 @@ const calculatePath = document.querySelector('#calculate');
 calculatePath.addEventListener('click', calculateHypot);
 addPoint.addEventListener('click', createInputs)
 
-let counter = 2;
+let counter = 1;
 function createInputs() {
   const newInput = 
     `
@@ -31,18 +31,16 @@ function calculateHypot() {
   const valuesX = inputValuesX.map(item => parseFloat(item.value))
   const valuesY = inputValuesY.map(item => parseFloat(item.value))
   createPointsObject(valuesX, valuesY);
-  showCombinations()
+  showAllPaths()
 }
 
 function createPointsObject(x, y) {
   return Math.hypot(x[1] - x[0], y[1] - y[0]);
 }
 
-function showCombinations(){
-  const pointsElements = Array.from(document.querySelectorAll('.coordinates-set'));
-  const pointsArray = pointsElements.map(item => parseInt(item.id))
+function showCombinations(points){
   let combinations = [];
-  let array = pointsArray.slice();
+  let array = points.slice();
 
   function swap(a,b){
     let temporary = array[a];
@@ -61,15 +59,16 @@ function showCombinations(){
     }
   }
   generate(array.length, array);
-  console.log(combinations);
+  return combinations;
 }
 
-
-function showAllPaths(pointsArray){
-  var pointsArray = generatePermutations(points.slice(1));
-  for (var i = 0; i < pointsArray.length; i++){
+function showAllPaths(){
+  const pointsElements = Array.from(document.querySelectorAll('.coordinates-set'));
+  const points = pointsElements.map(item => parseInt(item.id));
+  let pointsArray = showCombinations(points.slice(1));
+  for (let i = 0; i < pointsArray.length; i++){
     pointsArray[i].unshift(points[0]);
     pointsArray[i].push(points[0]);
   }
-  return pems;
+  return pointsArray;
 }
