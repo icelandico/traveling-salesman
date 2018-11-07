@@ -2,7 +2,7 @@ const addPoint = document.querySelector('#add-point');
 const calculatePath = document.querySelector('#calculate');
 
 calculatePath.addEventListener('click', calculateDistances);
-addPoint.addEventListener('click', createInputs)
+addPoint.addEventListener('click', createInputs);
 
 let counter = 1;
 function createInputs() {
@@ -33,15 +33,15 @@ function calculateDistances() {
 
 function showPathsNumber(paths) {
   const paragraphPaths = document.querySelector('.paths-number');
-  paragraphPaths.textContent += paths.length
+  paragraphPaths.textContent += paths.length;
 }
 
 function getCoordinates() {
   const inputValuesX = Array.from(document.querySelectorAll('.coordinate-x'));
   const inputValuesY = Array.from(document.querySelectorAll('.coordinate-y'));
-  const valuesX = inputValuesX.map(item => parseFloat(item.value))
-  const valuesY = inputValuesY.map(item => parseFloat(item.value))
-  const pointsObjects = valuesX.map((x, index) => ({ id: index, x: x, y: valuesY[index]}))
+  const valuesX = inputValuesX.map(item => parseFloat(item.value));
+  const valuesY = inputValuesY.map(item => parseFloat(item.value));
+  const pointsObjects = valuesX.map((x, index) => ({ id: index, x: x, y: valuesY[index]}));
   return pointsObjects
 }
 
@@ -59,9 +59,9 @@ function showCombinations(points){
     if (n == 1){
       combinations.push(array.slice());
     } else {
-      for(let i = 0; i <= n-1; i++) {
-        generate(n-1, array);
-        swap(n % 2 == 0 ? i : 0, n-1);
+      for (let i = 0; i <= n - 1; i++) {
+        generate(n - 1, array);
+        swap(n % 2 === 0 ? i : 0, n - 1);
       }
     }
   }
