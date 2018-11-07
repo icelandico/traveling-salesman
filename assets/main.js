@@ -26,21 +26,23 @@ function createInputs() {
 }
 
 function calculateDistances() {
-  const paths = showAllPaths()
-  console.log(paths);
+  const coordinates = getCoordinates()
+  const paths = showAllPaths();
+  showPathsNumber(paths)
+}
 
+function showPathsNumber(paths) {
+  const paragraphPaths = document.querySelector('.paths-number');
+  paragraphPaths.textContent += paths.length
+}
+
+function getCoordinates() {
   const inputValuesX = Array.from(document.querySelectorAll('.coordinate-x'));
   const inputValuesY = Array.from(document.querySelectorAll('.coordinate-y'));
   const valuesX = inputValuesX.map(item => parseFloat(item.value))
   const valuesY = inputValuesY.map(item => parseFloat(item.value))
-  console.log(valuesX)
-  console.log(valuesY)
   const pointsObjects = valuesX.map((x, index) => ({ id: index, x: x, y: valuesY[index]}))
-  console.log(pointsObjects)
-}
-
-function createPointsObject(x, y) {
-  return Math.hypot(x[1] - x[0], y[1] - y[0]);
+  return pointsObjects
 }
 
 function showCombinations(points){
