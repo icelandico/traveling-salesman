@@ -29,6 +29,12 @@ function calculateDistances() {
   const coordinates = getCoordinates()
   const paths = showAllPaths();
   showPathsNumber(paths)
+  console.log(coordinates)
+  console.log(paths)
+  /* Calculate distances using Math.hypot() */
+  const distances = paths.map(path => path.reduce(function(a,b) {
+    return Math.hypot(coordinates[paths[b][b]].x - coordinates[paths[a][a].x], coordinates[paths[a][b]].y - coordinates[paths[a][a]].y)
+  }))
 }
 
 function showPathsNumber(paths) {
