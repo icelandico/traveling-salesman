@@ -59,9 +59,9 @@ function showCombinations(points){
     if (n == 1){
       combinations.push(array.slice());
     } else {
-      for(var i = 0; i <= n-1; i++) {
+      for(let i = 0; i <= n-1; i++) {
         generate(n-1, array);
-        swap(n % 2 == 0 ? i : 0 ,n-1);
+        swap(n % 2 == 0 ? i : 0, n-1);
       }
     }
   }
