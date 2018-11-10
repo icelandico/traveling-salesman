@@ -33,13 +33,8 @@ function calculateDistances() {
   console.log(coordinates)
   console.log(paths)
   console.log(segments)
-  /* Calculate distances using Math.hypot() */
-  // const distances = paths.map(path => path.reduce(function(a,b) {
-  //   return Math.hypot(coordinates[paths[b][b]].x - coordinates[paths[a][a].x], coordinates[paths[a][b]].y - coordinates[paths[a][a]].y)
-  // }))
-  // const pathsSet = [ [0,1], [1,2], [2,3] ];
-  // const pointsSquare = pathsSet.map(item => ([ coordinates[item[1]].x - coordinates[item[0]].x, coordinates[item[1]].y - coordinates[item[0]].y ]));
-  // console.log(pointsSquare);
+  const segmentDistances = segments.map(segment => segment.map(pair => Math.hypot(coordinates[pair[1]].x - coordinates[pair[0]].x, coordinates[pair[1]].y - coordinates[pair[0]].y)))
+  console.log(segmentDistances)
 }
 
 function middleSegments(segments) {
