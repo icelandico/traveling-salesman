@@ -31,7 +31,8 @@ function calculateDistances() {
   const segments = middleSegments(paths)
   showPathsNumber(paths)
   const segmentDistances = segments.map(segment => segment.map(pair => Math.hypot(coordinates[pair[1]].x - coordinates[pair[0]].x, coordinates[pair[1]].y - coordinates[pair[0]].y)));
-  const sumDistances = segmentDistances.map(segment => segment.reduce((a, b) => a + b))
+  const sumDistances = segmentDistances.map(segment => segment.reduce((a, b) => a + b));
+  getShortestPath(sumDistances, paths)
 }
 
 function middleSegments(segments) {
@@ -43,6 +44,22 @@ function middleSegments(segments) {
     return result
   })
   return pathsSegments
+}
+
+function getShortestPath(distances, paths) {
+  const shortestDistance = Math.min.apply(null, distances);
+  const shortestPathIndex = distances.indexOf(shortestDistance);
+  const shortestPath = paths[shortestPathIndex];
+  showShortestPath(shortestPathIndex, shortestPath, shortestDistance)
+}
+
+function showShortestPath(index, path, distance) {
+  const paragraphDistance = document.querySelector('.path-distance');
+  const paragraphOrder = document.querySelector('.path-order');
+  path.forEach(point => {
+    paragraphOrder.textContent +=  ' ' + point
+  })
+  paragraphDistance.textContent += parseFloat(distance.toFixed(2))
 }
 
 function showPathsNumber(paths) {
