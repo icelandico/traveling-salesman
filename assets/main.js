@@ -55,21 +55,22 @@ function getShortestPathStats(distances, paths, segments) {
 }
 
 function showShortestPathStats(path, distance, segments) {
+  clearParagraphValues();
   const paragraphDistance = document.querySelector('.path-distance');
   const paragraphOrder = document.querySelector('.path-order');
   const pathsSegments = document.querySelector('.path-segments');
   path.forEach(point => {
-    paragraphOrder.textContent +=  ' ' + point
+    paragraphOrder.innerHTML +=  ' ' + point
   });
   segments.forEach(segment => {
-    pathsSegments.textContent += ' ' + parseFloat(segment.toFixed(2))
+    pathsSegments.innerHTML += ' ' + parseFloat(segment.toFixed(2))
   })
-  paragraphDistance.textContent += parseFloat(distance.toFixed(2))
+  paragraphDistance.innerHTML = parseFloat(distance.toFixed(2))
 }
 
 function showPathsNumber(paths) {
   const paragraphPaths = document.querySelector('.paths-number');
-  paragraphPaths.textContent += paths.length;
+  paragraphPaths.innerHTML = paths.length;
 }
 
 function getCoordinates() {
@@ -114,4 +115,9 @@ function showAllPaths(){
     pointsArray[i].push(points[0]);
   }
   return pointsArray;
+}
+
+function clearParagraphValues() {
+  const paragraphs = document.querySelectorAll('.path-info');
+  paragraphs.forEach(paragraph => paragraph.innerHTML = '')
 }
