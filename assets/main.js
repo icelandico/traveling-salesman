@@ -28,16 +28,29 @@ function createInputs() {
 function calculateDistances() {
   const coordinates = getCoordinates()
   const paths = showAllPaths();
+  const segments = middleSegments(paths)
   showPathsNumber(paths)
   console.log(coordinates)
   console.log(paths)
+  console.log(segments)
   /* Calculate distances using Math.hypot() */
   // const distances = paths.map(path => path.reduce(function(a,b) {
   //   return Math.hypot(coordinates[paths[b][b]].x - coordinates[paths[a][a].x], coordinates[paths[a][b]].y - coordinates[paths[a][a]].y)
   // }))
-  const pathsSet = [ [0,1], [1,2], [2,3] ];
-  const pointsSquare = pathsSet.map(item => ([ coordinates[item[1]].x - coordinates[item[0]].x, coordinates[item[1]].y - coordinates[item[0]].y ]));
-  console.log(pointsSquare);
+  // const pathsSet = [ [0,1], [1,2], [2,3] ];
+  // const pointsSquare = pathsSet.map(item => ([ coordinates[item[1]].x - coordinates[item[0]].x, coordinates[item[1]].y - coordinates[item[0]].y ]));
+  // console.log(pointsSquare);
+}
+
+function middleSegments(segments) {
+  const pathsSegments = segments.map(path => {
+    let result = [];
+    for (let i = 0; i < path.length - 1; i++) {
+      result.push([path[i], path[i + 1]])
+    }
+    return result
+  })
+  return pathsSegments
 }
 
 function showPathsNumber(paths) {
