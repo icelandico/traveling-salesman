@@ -1,7 +1,7 @@
 const addPoint = document.querySelector('#add-point');
 const calculatePath = document.querySelector('#calculate');
 
-calculatePath.addEventListener('click', calculateDistances);
+calculatePath.addEventListener('click', getPath);
 addPoint.addEventListener('click', createInputs);
 
 let counter = 1;
@@ -25,8 +25,15 @@ function createInputs() {
   counter += 1;
 }
 
-function calculateDistances() {
-  const coordinates = getCoordinates()
+function getPath() {
+  const coordinates = getCoordinates();
+  let emptyInputs = 0;
+  coordinates.forEach(item => Object.values(item).includes(NaN) ? emptyInputs += 1 : false);
+  emptyInputs ? alert('Fill all inputs!') : calculateDistances(coordinates);
+}
+
+function calculateDistances(coordinates) {
+  //const coordinates = getCoordinates()
   const paths = showAllPaths();
   const segments = middleSegments(paths)
   showPathsNumber(paths)
