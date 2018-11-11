@@ -1,0 +1,23 @@
+{
+  "name": "traveling-salesman",
+  "version": "1.0.0",
+  "description": "Algorithm for traveling salesman problem",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^23.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icelandico/traveling-salesman.git"
+  },
+  "author": "Michal M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icelandico/traveling-salesman/issues"
+  },
+  "homepage": "https://github.com/icelandico/traveling-salesman#readme"
+}

@@ -29,11 +29,10 @@ function getPath() {
   const coordinates = getCoordinates();
   let emptyInputs = 0;
   coordinates.forEach(item => Object.values(item).includes(NaN) ? emptyInputs += 1 : false);
-  emptyInputs ? alert('Fill all inputs!') : calculateDistances(coordinates);
+  emptyInputs || coordinates.length === 1 ? alert('Fill all inputs or type at least two points!') : calculateDistances(coordinates);
 }
 
 function calculateDistances(coordinates) {
-  //const coordinates = getCoordinates()
   const paths = showAllPaths();
   const segments = middleSegments(paths)
   showPathsNumber(paths)
@@ -99,7 +98,7 @@ function showCombinations(points){
     array[b] = temporary;
   }
 
-  function generate(n, A){
+  function generate(n){
     if (n == 1){
       combinations.push(array.slice());
     } else {
