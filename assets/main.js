@@ -12,11 +12,11 @@ function createInputs() {
     <div class="coordinates-set" id=${counter}>
       <label>
         X
-        <input type="text" class="coordinate-x">
+        <input type="text" class="coords coordinate-x">
       </label>
       <label>
         Y
-        <input type="text" class="coordinate-y">
+        <input type="text" class="coords coordinate-y">
       </label>
     </div>
     `

@@ -1,1 +1,20 @@
+body {
+  background-color: #BCBDBC;
+  text-align: center;
+  color: #2A2A2A;
+  font-family: 'Lato', sans-serif;
+}
 
+.action-button {
+  padding: 10px;
+  background-color: #969696;
+  color: #2A2A2A;
+}
+
+.content {
+  margin: 2%;
+}
+
+.coords {
+  width: 5%;
+}
