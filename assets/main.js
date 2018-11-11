@@ -149,4 +149,5 @@ function removeInputs() {
   const initialInput = document.querySelectorAll('.coords');
   addedInputs.forEach(item => item.remove())
   initialInput.forEach(item => item.value = '');
+  counter = 1;
 }
