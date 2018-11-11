@@ -6,15 +6,37 @@ body {
 }
 
 .action-button {
+  margin: 0 10px;
   padding: 10px;
   background-color: #969696;
   color: #2A2A2A;
+  border: none;
+  border-radius: 5px;
+}
+
+.action-button:hover {
+  background-color: #545454;
+  color: #BCBDBC;
 }
 
 .content {
   margin: 2%;
 }
 
+.coordinates-set > label {
+  margin: 0 15px;
+}
+
 .coords {
   width: 5%;
+}
+
+div.result-container > p {
+  font-weight: 700;
+}
+
+.result {
+  color: #2A2A2A;
+  font-size: 1.25rem;
+  word-spacing: 2rem;
 }
