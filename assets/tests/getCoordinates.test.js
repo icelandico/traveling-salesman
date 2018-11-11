@@ -1,4 +1,4 @@
-const getCoordinates =require('getCoordinates');
+const getCoordinates = require('./getCoordinates.js');
 
 if (getCoordinates(
   [
