@@ -11,19 +11,18 @@ function createInputs() {
   const newInput = 
     `
     <div class="added-input">
-    <p>${counter}.</p>
-    <div class="coordinates-set" id=${counter}>
-      <label>
-        X
-        <input type="text" class="coords coordinate-x">
-      </label>
-      <label>
-        Y
-        <input type="text" class="coords coordinate-y">
-      </label>
+      <p>${counter}.</p>
+      <div class="coordinates-set" id=${counter}>
+        <label>
+          X
+          <input type="text" class="coords coordinate-x">
+        </label>
+        <label>
+          Y
+          <input type="text" class="coords coordinate-y">
+        </label>
+      </div>
     </div>
-    </div>
-
     `
   const inputContainer = document.querySelector('.coordinates-values');
   inputContainer.insertAdjacentHTML('beforeend', newInput);
@@ -147,7 +146,7 @@ function clearEntries() {
 function removeInputs() {
   const addedInputs = document.querySelectorAll('.added-input');
   const initialInput = document.querySelectorAll('.coords');
-  addedInputs.forEach(item => item.remove())
+  addedInputs.forEach(item => item.remove());
   initialInput.forEach(item => item.value = '');
   counter = 1;
 }
