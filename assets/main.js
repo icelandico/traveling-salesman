@@ -10,6 +10,7 @@ let counter = 1;
 function createInputs() {
   const newInput = 
     `
+    <div class="added-input">
     <p>${counter}.</p>
     <div class="coordinates-set" id=${counter}>
       <label>
@@ -21,6 +22,8 @@ function createInputs() {
         <input type="text" class="coords coordinate-y">
       </label>
     </div>
+    </div>
+
     `
   const inputContainer = document.querySelector('.coordinates-values');
   inputContainer.insertAdjacentHTML('beforeend', newInput);
@@ -138,4 +141,12 @@ function clearEntries() {
   results.forEach(item => {
     item.innerHTML = ''
   })
+  removeInputs()
+}
+
+function removeInputs() {
+  const addedInputs = document.querySelectorAll('.added-input');
+  const initialInput = document.querySelectorAll('.coords');
+  addedInputs.forEach(item => item.remove())
+  initialInput.forEach(item => item.value = '');
 }
