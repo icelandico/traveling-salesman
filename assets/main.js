@@ -1,8 +1,10 @@
 const addPoint = document.querySelector('#add-point');
 const calculatePath = document.querySelector('#calculate');
+const clearValues = document.querySelector('#clear');
 
 calculatePath.addEventListener('click', getPath);
 addPoint.addEventListener('click', createInputs);
+clearValues.addEventListener('click', clearEntries);
 
 let counter = 1;
 function createInputs() {
@@ -129,4 +131,11 @@ function showAllPaths(){
 function clearParagraphValues() {
   const paragraphs = document.querySelectorAll('.path-info');
   paragraphs.forEach(paragraph => paragraph.innerHTML = '')
+}
+
+function clearEntries() {
+  const results = document.querySelectorAll('.result');
+  results.forEach(item => {
+    item.innerHTML = ''
+  })
 }
