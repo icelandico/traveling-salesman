@@ -40,7 +40,9 @@ function calculateDistances(coordinates) {
     segment.map(pair => 
       Math.hypot(coordinates[pair[1]].x - coordinates[pair[0]].x, coordinates[pair[1]].y - coordinates[pair[0]].y)
     ));
+    console.log(segmentDistances)
   const sumDistances = segmentDistances.map(segment => segment.reduce((a, b) => a + b));
+  console.log(sumDistances)
   getShortestPathStats(sumDistances, paths, segmentDistances)
 }
 
