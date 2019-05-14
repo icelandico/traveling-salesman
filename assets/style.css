@@ -20,7 +20,7 @@ body {
 }
 
 .content {
-  margin: 2%;
+  margin: 25px;
 }
 
 .coordinates-set > label {
@@ -28,7 +28,8 @@ body {
 }
 
 .coords {
-  width: 5%;
+  width: 40px;
+  margin-left: 10px;
 }
 
 div.result-container > p {
