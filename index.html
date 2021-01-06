@@ -10,13 +10,11 @@
 
   <body>
   <header>
-    <div class="topbar">
-      <h1>Traveling Salesman Problem</h1>
-      <p></p>
-    </div>
+    <h1>Traveling Salesman Problem</h1>
   </header>
   <main>
-    <div class="main-content">
+    <div class="main__container">
+    <div class="options__container">
       <div class="coordinates-form">
         <h3>Type coordinates</h3>
         <div class="content coordinates-values">
@@ -45,9 +43,12 @@
         <p>The distance is: <p class="result path-info path-distance"></p>
       </div>
     </div>
-    <canvas id="chart" class="chart_canvas" width="600" height="600"></canvas>
+    <div class="canvas__container">
+      <canvas id="chart" class="chart__canvas" width="600" height="600"></canvas>
+    </div>
+    </div>
   </main>
-  <script src="assets/main.js"></script>
+  <script src="assets/index.js"></script>
   <script src="assets/canvasGrid.js"></script>
   </body>
   

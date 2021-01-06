@@ -71,7 +71,7 @@ const drawGrid = () => {
     ctx.stroke();
 
     // Text value at that point
-    ctx.font = '9px Arial';
+    ctx.font = '11px Consolas';
     ctx.textAlign = 'start';
     ctx.fillText(`${x_axis_starting_point * i}`, grid_size * i - 2, 15);
   }
@@ -88,7 +88,7 @@ const drawGrid = () => {
     ctx.stroke();
 
     // Text value at that point
-    ctx.font = '10px Arial';
+    ctx.font = '11px Consolas';
     ctx.textAlign = 'end';
     ctx.fillText(`${-x_axis_starting_point * i}`, -grid_size * i + 3, 15);
   }
@@ -106,7 +106,7 @@ const drawGrid = () => {
     ctx.stroke();
 
     // Text value at that point
-    ctx.font = '10px Arial';
+    ctx.font = '11px Consolas';
     ctx.textAlign = 'start';
     ctx.fillText(`${-y_axis_starting_point * i}`, 8, grid_size * i + 3);
   }
@@ -124,7 +124,7 @@ const drawGrid = () => {
     ctx.stroke();
 
     // Text value at that point
-    ctx.font = '9px Arial';
+    ctx.font = '11px Consolas';
     ctx.textAlign = 'start';
     ctx.fillText(`${y_axis_starting_point * i}`, 8, -grid_size * i + 3);
   }
@@ -132,7 +132,7 @@ const drawGrid = () => {
 };
 
 function drawPoint(x, y) {
-  ctx.fillStyle = "#2d451f"; // Red color
+  ctx.fillStyle = "#2d451f";
   ctx.beginPath();
   ctx.arc(25 * x + 0.5, 25 * y + 0.5, 10, 0, Math.PI * 2, true);
   ctx.fill();

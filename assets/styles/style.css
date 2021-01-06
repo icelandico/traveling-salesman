@@ -5,6 +5,11 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+.main__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .action-button {
   margin: 0 10px;
   padding: 10px;
