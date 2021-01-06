@@ -1,7 +1,7 @@
-const drawGrid = () => {
-  const canvas = document.getElementById("chart");
-  const ctx = canvas.getContext("2d");
+const canvas = document.getElementById("chart");
+const ctx = canvas.getContext("2d");
 
+const drawGrid = () => {
   const grid_size = 25;
   const x_axis_starting_point = 1;
   const y_axis_starting_point = 1;
@@ -130,5 +130,12 @@ const drawGrid = () => {
   }
 
 };
+
+function drawPoint(x, y) {
+  ctx.fillStyle = "#2d451f"; // Red color
+  ctx.beginPath();
+  ctx.arc(25 * x + 0.5, 25 * y + 0.5, 10, 0, Math.PI * 2, true);
+  ctx.fill();
+}
 
 drawGrid();

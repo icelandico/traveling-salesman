@@ -1,22 +1,23 @@
 body {
-  background-color: #BCBDBC;
+  background-color: var(--gray);
   text-align: center;
-  color: #2A2A2A;
+  color: var(--darkFont);
   font-family: 'Lato', sans-serif;
 }
 
 .action-button {
   margin: 0 10px;
   padding: 10px;
-  background-color: #969696;
-  color: #2A2A2A;
-  border: none;
+  background-color: var(--primaryBtn);
+  border: 1px solid var(--primaryBtn);
+  color: var(--darkFont);
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .action-button:hover {
-  background-color: #545454;
-  color: #BCBDBC;
+  background-color: var(--primaryAccent);
 }
 
 .content {
