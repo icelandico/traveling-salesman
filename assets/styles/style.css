@@ -57,3 +57,23 @@ div.result-container > p {
   font-size: 1.25rem;
   word-spacing: 2rem;
 }
+
+.canvas__container {
+  position: relative;
+}
+
+.chart__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.chart__canvas-grid {
+  z-index: 0;
+}
+
+.chart__canvas-points {
+  z-index: 1;
+}

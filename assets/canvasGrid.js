@@ -1,16 +1,16 @@
-const canvas = document.getElementById("chart");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById("chart-grid");
+const grid_size = 25;
+const canvas_width = canvas.width;
+const canvas_height = canvas.height;
+const num_lines_x = Math.floor(canvas_height / grid_size);
+const num_lines_y = Math.floor(canvas_width / grid_size);
+const x_axis_distance_grid_lines = Math.floor(num_lines_x / 2);
+const y_axis_distance_grid_lines = Math.floor(num_lines_y / 2);
 
 const drawGrid = () => {
-  const grid_size = 25;
+  const ctx = canvas.getContext("2d");
   const x_axis_starting_point = 1;
   const y_axis_starting_point = 1;
-  const canvas_width = canvas.width;
-  const canvas_height = canvas.height;
-  const num_lines_x = Math.floor(canvas_height / grid_size);
-  const num_lines_y = Math.floor(canvas_width / grid_size);
-  const x_axis_distance_grid_lines = Math.floor(num_lines_x / 2);
-  const y_axis_distance_grid_lines = Math.floor(num_lines_y / 2);
 
 // Draw grid lines along X-axis
   for(let i = 0; i <= num_lines_x; i++) {
@@ -21,7 +21,7 @@ const drawGrid = () => {
     if(i == x_axis_distance_grid_lines)
       ctx.strokeStyle = "#000000";
     else
-      ctx.strokeStyle = "#d4d4d4";
+      ctx.strokeStyle = "#acacac";
 
     if (i == num_lines_x) {
       ctx.moveTo(0, grid_size * i);
@@ -40,10 +40,11 @@ const drawGrid = () => {
     ctx.lineWidth = 1;
 
     // If line represents X-axis draw in different color
-    if(i == y_axis_distance_grid_lines)
+    if (i == y_axis_distance_grid_lines) {
       ctx.strokeStyle = "#121418";
-    else
-      ctx.strokeStyle = "#e9e9e9";
+    } else {
+        ctx.strokeStyle = "#acacac";
+      }
 
     if(i == num_lines_y) {
       ctx.moveTo(grid_size * i, 0);
@@ -131,11 +132,51 @@ const drawGrid = () => {
 
 };
 
+const pointsList = [
+  {
+    id: 1,
+    x: -2,
+    y: 2,
+  },
+  {
+    id: 2,
+    x: -1,
+    y: 4,
+  },
+  {
+    id: 3,
+    x: 10,
+    y: 0,
+  },
+  {
+    id: 4,
+    x: -9,
+    y: 9,
+  },
+  {
+    id: 5,
+    x: 8,
+    y: -3,
+  }
+]
+
+const canvasPoints = document.getElementById("chart-points");
+const canvasP = canvasPoints.getContext("2d");
+canvasP.translate(y_axis_distance_grid_lines * grid_size, x_axis_distance_grid_lines * grid_size);
+
 function drawPoint(x, y) {
-  ctx.fillStyle = "#2d451f";
-  ctx.beginPath();
-  ctx.arc(25 * x + 0.5, 25 * y + 0.5, 10, 0, Math.PI * 2, true);
-  ctx.fill();
+  canvasP.moveTo(25 * x + 0.5, 25 * y + 0.5)
+  canvasP.arc(25 * x + 0.5, 25 * y + 0.5, 6, 0, Math.PI * 2, true);
 }
 
+function drawPointsLayer() {
+  pointsList.forEach(point => {
+    canvasP.beginPath();
+    drawPoint(point.x, point.y)
+    canvasP.fillStyle = "#2d451f";
+    canvasP.fill();
+  })
+}
+
+drawPointsLayer();
 drawGrid();
