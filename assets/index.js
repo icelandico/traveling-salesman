@@ -21,6 +21,7 @@ function createInputs() {
           Y
           <input type="text" class="coords coordinate-y">
         </label>
+        <span class="button button--danger coordinates__remove">Remove</span>
       </div>
     </div>
     `
