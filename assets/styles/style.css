@@ -59,7 +59,10 @@ div.result-container > p {
 }
 
 .canvas__container {
+  height: 700px;
+  width: 700px;
   position: relative;
+  overflow: auto;
 }
 
 .chart__canvas {
@@ -71,6 +74,7 @@ div.result-container > p {
 }
 
 .chart__canvas-grid {
+  overflow: scroll;
   z-index: 0;
 }
 

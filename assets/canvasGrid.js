@@ -1,5 +1,5 @@
 const canvas = document.getElementById("chart-grid");
-const grid_size = 25;
+const grid_size = 17;
 const canvas_width = canvas.width;
 const canvas_height = canvas.height;
 const num_lines_x = Math.floor(canvas_height / grid_size);
@@ -165,8 +165,8 @@ const canvasP = canvasPoints.getContext("2d");
 canvasP.translate(y_axis_distance_grid_lines * grid_size, x_axis_distance_grid_lines * grid_size);
 
 function drawPoint(x, y) {
-  canvasP.moveTo(25 * x + 0.5, 25 * y + 0.5)
-  canvasP.arc(25 * x + 0.5, 25 * y + 0.5, 6, 0, Math.PI * 2, true);
+  canvasP.moveTo(grid_size * x + 0.5, grid_size * y + 0.5)
+  canvasP.arc(grid_size * x + 0.5, grid_size * y + 0.5, 6, 0, Math.PI * 2, true);
 }
 
 function drawPointsLayer() {
