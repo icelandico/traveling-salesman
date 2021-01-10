@@ -132,45 +132,17 @@ const drawGrid = () => {
 
 };
 
-const pointsList = [
-  {
-    id: 1,
-    x: -2,
-    y: 2,
-  },
-  {
-    id: 2,
-    x: -1,
-    y: 4,
-  },
-  {
-    id: 3,
-    x: 10,
-    y: 0,
-  },
-  {
-    id: 4,
-    x: -9,
-    y: 9,
-  },
-  {
-    id: 5,
-    x: 8,
-    y: -3,
-  }
-]
-
 const canvasPoints = document.getElementById("chart-points");
 const canvasP = canvasPoints.getContext("2d");
 canvasP.translate(y_axis_distance_grid_lines * grid_size, x_axis_distance_grid_lines * grid_size);
 
 function drawPoint(x, y) {
   canvasP.moveTo(grid_size * x + 0.5, grid_size * y + 0.5)
-  canvasP.arc(grid_size * x + 0.5, grid_size * y + 0.5, 6, 0, Math.PI * 2, true);
+  canvasP.arc(grid_size * x + 0.5, grid_size * y * (-1) + 0.5, 6, 0, Math.PI * 2, true);
 }
 
-function drawPointsLayer() {
-  pointsList.forEach(point => {
+function drawPointsLayer(points) {
+  points.forEach(point => {
     canvasP.beginPath();
     drawPoint(point.x, point.y)
     canvasP.fillStyle = "#1e3383";
@@ -178,5 +150,4 @@ function drawPointsLayer() {
   })
 }
 
-drawPointsLayer();
 drawGrid();

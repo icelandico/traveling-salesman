@@ -56,6 +56,7 @@ class CoordinateSolver {
         ));
     const sumDistances = segmentDistances.map(segment => segment.reduce((a, b) => a + b));
     this.getShortestPathStats(sumDistances, paths, segmentDistances)
+    drawPointsLayer(coordinates)
   }
 
   middleSegments(segments) {
