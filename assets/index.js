@@ -28,8 +28,7 @@ class CoordinateSolver {
   createInput() {
     const newInput =
     `
-      <div class="coordinates__set-container">
-        <div class="coordinates__set-values" id=${this.counter}>
+      <div class="coordinates__set-container" id="${this.counter}">
         <span class="coordinates__set-counter">${this.counter}.</span>
           <label>
             X
@@ -40,7 +39,6 @@ class CoordinateSolver {
             <input type="text" class="coords coordinate-y">
           </label>
           ${this.counter >= 1 && '<span class="button button--danger coordinates__remove">Remove</span>'}
-        </div>
       </div>
     `
     this.inputContainer.insertAdjacentHTML('beforeend', newInput);
@@ -140,7 +138,7 @@ class CoordinateSolver {
   }
 
   showAllPaths(){
-    const pointsElements = Array.from(document.querySelectorAll('.coordinates-set'));
+    const pointsElements = Array.from(document.querySelectorAll('.coordinates__set-container'));
     const points = pointsElements.map(item => parseInt(item.id));
     let pointsArray = this.showCombinations(points.slice(1));
     for (let i = 0; i < pointsArray.length; i++){
