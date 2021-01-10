@@ -12,8 +12,9 @@ class CoordinateSolver {
   counter = 1;
   addPoint = document.querySelector('#add-point');
   clearValues = document.querySelector('#clear');
-  inputContainer = document.querySelector('.coordinates-values');
+  inputContainer = document.querySelector('.coordinates__inputs-container');
   calculatePath = document.querySelector('#calculate');
+  removeCoordinatesButton = document.querySelectorAll('.coordinates__remove');
 
   constructor() { }
 
@@ -21,15 +22,15 @@ class CoordinateSolver {
     this.calculatePath.addEventListener('click', () => this.getPath());
     this.addPoint.addEventListener('click', () => this.createInput());
     this.clearValues.addEventListener('click', () => this.clearEntries());
+    this.removeCoordinatesButton.forEach(button => button.addEventListener('click', () => this.removeCoordinates()))
   }
 
   createInput() {
-    console.log(this.counter)
     const newInput =
     `
-      <div class="added-input">
-        <p>${this.counter}.</p>
-        <div class="coordinates-set" id=${this.counter}>
+      <div class="coordinates__set-container">
+        <div class="coordinates__set-values" id=${this.counter}>
+        <span class="coordinates__set-counter">${this.counter}.</span>
           <label>
             X
             <input type="text" class="coords coordinate-x">
@@ -44,6 +45,10 @@ class CoordinateSolver {
     `
     this.inputContainer.insertAdjacentHTML('beforeend', newInput);
     this.counter += 1;
+  }
+
+  removeCoordinates() {
+
   }
 
   getPath() {

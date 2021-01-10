@@ -31,16 +31,31 @@ body {
   color: var(--white);
 }
 
+.button--hidden {
+  visibility: hidden;
+}
+
 .button:hover {
   box-shadow: 1px 1px 1px var(--black);
 }
 
-.content {
-  margin: 25px;
+.coordinates__inputs-container {
+  width: 75%;
+  margin: 0 auto;
 }
 
-.coordinates-set > label {
+.coordinates__set-values {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coordinates__set-values > label {
   margin: 0 15px;
+}
+
+.coordinates__set-counter {
+  font-weight: bold;
 }
 
 .coords {
