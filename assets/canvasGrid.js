@@ -173,7 +173,7 @@ function drawPointsLayer() {
   pointsList.forEach(point => {
     canvasP.beginPath();
     drawPoint(point.x, point.y)
-    canvasP.fillStyle = "#2d451f";
+    canvasP.fillStyle = "#1e3383";
     canvasP.fill();
   })
 }
