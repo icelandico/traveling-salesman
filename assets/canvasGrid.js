@@ -133,20 +133,25 @@ const drawGrid = () => {
 };
 
 const canvasPoints = document.getElementById("chart-points");
-const canvasP = canvasPoints.getContext("2d");
-canvasP.translate(y_axis_distance_grid_lines * grid_size, x_axis_distance_grid_lines * grid_size);
+const canvasPointsContext = canvasPoints.getContext("2d");
+canvasPointsContext.translate(y_axis_distance_grid_lines * grid_size, x_axis_distance_grid_lines * grid_size);
 
 function drawPoint(x, y) {
-  canvasP.moveTo(grid_size * x + 0.5, grid_size * y + 0.5)
-  canvasP.arc(grid_size * x + 0.5, grid_size * y * (-1) + 0.5, 6, 0, Math.PI * 2, true);
+  canvasPointsContext.moveTo(grid_size * x + 0.5, grid_size * y + 0.5)
+  canvasPointsContext.arc(grid_size * x + 0.5, grid_size * y * (-1) + 0.5, 6, 0, Math.PI * 2, true);
+}
+
+function clearCanvasContext() {
+  canvasPointsContext.restore();
+  canvasPointsContext.clearRect( -x_axis_distance_grid_lines * grid_size, -y_axis_distance_grid_lines * grid_size, canvas_width, canvas_height);
 }
 
 function drawPointsLayer(points) {
   points.forEach(point => {
-    canvasP.beginPath();
+    canvasPointsContext.beginPath();
     drawPoint(point.x, point.y)
-    canvasP.fillStyle = "#1e3383";
-    canvasP.fill();
+    canvasPointsContext.fillStyle = "#1e3383";
+    canvasPointsContext.fill();
   })
 }
 

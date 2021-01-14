@@ -5,6 +5,7 @@ class CoordinateSolver {
   inputContainer = document.querySelector('.coordinates__inputs-container');
   calculatePath = document.querySelector('#calculate');
   removeCoordinatesButton = document.querySelectorAll('.coordinates__remove');
+  clearCanvas = document.querySelector('#clearPoints')
   pointCoordinates = [];
 
   constructor() { }
@@ -14,6 +15,11 @@ class CoordinateSolver {
     this.addPoint.addEventListener('click', () => this.createInput());
     this.clearValues.addEventListener('click', () => this.clearEntries());
     this.removeCoordinatesButton.forEach(button => button.addEventListener('click', () => this.removeCoordinates()))
+    this.clearCanvas.addEventListener('click', () => this.clearCanvasR())
+  }
+
+  clearCanvasR() {
+    clearCanvasContext()
   }
 
   createInput() {
@@ -40,6 +46,7 @@ class CoordinateSolver {
     let emptyInputs = 0;
     coordinates.forEach(item => Object.values(item).includes(NaN) ? emptyInputs += 1 : false);
     emptyInputs || coordinates.length === 1 ? alert('Fill all inputs or type at least two points!') : this.calculateDistances(coordinates);
+    drawPointsLayer(this.getCoordinates())
   }
 
   calculateDistances(coordinates) {
@@ -110,7 +117,7 @@ class CoordinateSolver {
     }
 
     function generate(n){
-      if (n == 1){
+      if (n === 1){
         combinations.push(array.slice());
       } else {
         for (let i = 0; i <= n - 1; i++) {
