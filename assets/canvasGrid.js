@@ -147,6 +147,7 @@ function clearCanvasContext() {
 }
 
 function drawPointsLayer(points) {
+  clearCanvasContext()
   points.forEach(point => {
     canvasPointsContext.beginPath();
     drawPoint(point.x, point.y)

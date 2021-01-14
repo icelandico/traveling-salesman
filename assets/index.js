@@ -5,7 +5,6 @@ class CoordinateSolver {
   inputContainer = document.querySelector('.coordinates__inputs-container');
   calculatePath = document.querySelector('#calculate');
   removeCoordinatesButton = document.querySelectorAll('.coordinates__remove');
-  clearCanvas = document.querySelector('#clearPoints')
   pointCoordinates = [];
 
   constructor() { }
@@ -15,11 +14,6 @@ class CoordinateSolver {
     this.addPoint.addEventListener('click', () => this.createInput());
     this.clearValues.addEventListener('click', () => this.clearEntries());
     this.removeCoordinatesButton.forEach(button => button.addEventListener('click', () => this.removeCoordinates()))
-    this.clearCanvas.addEventListener('click', () => this.clearCanvasR())
-  }
-
-  clearCanvasR() {
-    clearCanvasContext()
   }
 
   createInput() {
