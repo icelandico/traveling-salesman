@@ -146,12 +146,13 @@ class CoordinateSolver {
       item.innerHTML = ''
     })
     this.removeInputs()
+    drawPointsLayer(this.getCoordinates())
   }
 
   removeInputs() {
-    const addedInputs = document.querySelectorAll('.added-input');
+    const addedElements = document.querySelectorAll('.coordinates__set-added');
     const initialInput = document.querySelectorAll('.coords');
-    addedInputs.forEach(item => item.remove());
+    addedElements.forEach(item => item.remove());
     initialInput.forEach(item => item.value = '');
     this.counter = 1;
   }

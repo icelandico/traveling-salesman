@@ -1,6 +1,6 @@
 const inputsTemplate = counter => {
   return `
-      <div class="coordinates__set-container coordinates__set-${counter}" id="${counter}">
+      <div class="coordinates__set-container coordinates__set-${counter} coordinates__set-added" id="${counter}">
         <span class="coordinates__set-counter">${counter}.</span>
         <label>
           X
