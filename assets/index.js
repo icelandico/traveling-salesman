@@ -23,7 +23,7 @@ class CoordinateSolver {
     }
     this.inputContainer.insertAdjacentHTML('beforeend', inputsTemplate(this.counter));
     this.counter += 1;
-    // drawPointsLayer(coordinates)
+    drawPointsLayer(this.getCoordinates())
   }
 
   removeCoordinates() {
