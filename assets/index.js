@@ -5,6 +5,7 @@ class CoordinateSolver {
   inputContainer = document.querySelector('.coordinates__inputs-container');
   calculatePath = document.querySelector('#calculate');
   removeCoordinatesButton = document.querySelectorAll('.coordinates__remove');
+  pointCoordinates = [];
 
   constructor() { }
 
@@ -16,27 +17,22 @@ class CoordinateSolver {
   }
 
   createInput() {
-    const newInput =
-    `
-      <div class="coordinates__set-container" id="${this.counter}">
-        <span class="coordinates__set-counter">${this.counter}.</span>
-          <label>
-            X
-            <input type="text" class="coords coordinate-x">
-          </label>
-          <label>
-            Y
-            <input type="text" class="coords coordinate-y">
-          </label>
-          ${this.counter >= 1 && '<span class="button button--danger coordinates__remove">Remove</span>'}
-      </div>
-    `
-    this.inputContainer.insertAdjacentHTML('beforeend', newInput);
+    if (!this.areInputsNotEmpty()) {
+      alert('Fill X and Y');
+      return;
+    }
+    this.inputContainer.insertAdjacentHTML('beforeend', inputsTemplate(this.counter));
     this.counter += 1;
+    // drawPointsLayer(coordinates)
   }
 
   removeCoordinates() {
 
+  }
+
+  areInputsNotEmpty() {
+    const lastInputs = document.querySelectorAll(`.coordinates__set-${this.counter - 1} .coords`);
+    return Array.from(lastInputs).map(el => !!el.value).filter(Boolean).length === 2;
   }
 
   getPath() {
@@ -56,7 +52,6 @@ class CoordinateSolver {
         ));
     const sumDistances = segmentDistances.map(segment => segment.reduce((a, b) => a + b));
     this.getShortestPathStats(sumDistances, paths, segmentDistances)
-    drawPointsLayer(coordinates)
   }
 
   middleSegments(segments) {

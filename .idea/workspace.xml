@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d13a4389-fecd-4941-ab64-8db58ba92b42" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/templates/inputsTemplate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/canvasGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/canvasGrid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +61,8 @@
       <workItem from="1609948940722" duration="14228000" />
       <workItem from="1609998902434" duration="249000" />
       <workItem from="1610301972681" duration="6633000" />
+      <workItem from="1610344488439" duration="600000" />
+      <workItem from="1610645880932" duration="2822000" />
     </task>
     <servers />
   </component>
