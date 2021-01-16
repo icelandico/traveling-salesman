@@ -35,6 +35,7 @@ export default class CanvasPoints extends Canvas {
   }
 
   clearCanvasContext() {
+    this.pointsLabels.clearCanvasContext();
     this.canvasPointsContext.restore();
     this.canvasPointsContext.clearRect(
       -this.x_axis_distance_grid_lines * this.grid_size,

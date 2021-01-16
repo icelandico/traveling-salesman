@@ -23,4 +23,14 @@ export default class CanvasPointsLabels extends Canvas {
     this.canvasPointsLabelsContext.font = "600 16px Consolas";
     this.canvasPointsLabelsContext.fillText(id, labelX, labelY);
   }
+
+  clearCanvasContext() {
+    this.canvasPointsLabelsContext.restore();
+    this.canvasPointsLabelsContext.clearRect(
+      -this.x_axis_distance_grid_lines * this.grid_size,
+      -this.y_axis_distance_grid_lines * this.grid_size,
+      this.canvas_width,
+      this.canvas_height
+    );
+  }
 }
