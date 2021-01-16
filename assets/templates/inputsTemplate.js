@@ -10,10 +10,6 @@ export const inputsTemplate = (counter) => {
           Y
           <input type="text" class="coords coordinate-y">
         </label>
-        ${
-          counter >= 1 &&
-          '<span class="button button--danger coordinates__remove">Remove</span>'
-        }
       </div>    
       `;
 };

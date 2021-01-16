@@ -18,9 +18,6 @@ export default class CoordinateSolver {
     this.calculatePath.addEventListener("click", () => this.getPath());
     this.addPoint.addEventListener("click", () => this.createInput());
     this.clearValues.addEventListener("click", () => this.clearEntries());
-    this.removeCoordinatesButton.forEach((button) =>
-      button.addEventListener("click", () => this.removeCoordinates())
-    );
   }
 
   createInput() {
@@ -35,8 +32,6 @@ export default class CoordinateSolver {
     this.counter += 1;
     this.canvasPoints.drawPointsLayer(this.getCoordinates());
   }
-
-  removeCoordinates() {}
 
   areInputsNotEmpty() {
     const lastInputs = document.querySelectorAll(
@@ -175,6 +170,7 @@ export default class CoordinateSolver {
     results.forEach((item) => {
       item.innerHTML = "";
     });
+    this.canvasPoints.clearCanvasContext();
     this.removeInputs();
     this.canvasPoints.drawPointsLayer(this.getCoordinates());
   }

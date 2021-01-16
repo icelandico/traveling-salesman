@@ -7,6 +7,7 @@ export default class CanvasPoints extends Canvas {
   constructor() {
     super();
     this.translateGrid();
+    this.clearCanvasContext = this.clearCanvasContext.bind(this);
   }
 
   translateGrid() {
@@ -34,7 +35,7 @@ export default class CanvasPoints extends Canvas {
   clearCanvasContext() {
     this.canvasPointsContext.restore();
     this.canvasPointsContext.clearRect(
-      -this.x_axis_distance_grid_lines * -this.grid_size,
+      -this.x_axis_distance_grid_lines * this.grid_size,
       -this.y_axis_distance_grid_lines * this.grid_size,
       this.canvas_width,
       this.canvas_height
