@@ -1,11 +1,13 @@
-export default class CanvasPoints {
+import Canvas from "./Canvas";
+
+export default class CanvasPoints extends Canvas {
   canvasPoints = document.getElementById("chart-points");
   canvasPointsContext = this.canvasPoints.getContext("2d");
 
   translateGrid() {
     this.canvasPointsContext.translate(
-      this.y_axis_distance_grid_lines * grid_size,
-      this.x_axis_distance_grid_lines * grid_size
+      this.y_axis_distance_grid_lines * this.grid_size,
+      this.x_axis_distance_grid_lines * this.grid_size
     );
   }
 

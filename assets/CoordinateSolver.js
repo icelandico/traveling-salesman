@@ -1,4 +1,5 @@
 import { inputsTemplate } from "./templates/inputsTemplate";
+import CanvasPoints from "./CanvasPoints";
 
 export default class CoordinateSolver {
   counter = 1;
@@ -9,7 +10,9 @@ export default class CoordinateSolver {
   removeCoordinatesButton = document.querySelectorAll(".coordinates__remove");
   pointCoordinates = [];
 
-  constructor() {}
+  constructor() {
+    this.canvasPoints = new CanvasPoints();
+  }
 
   initListeners() {
     this.calculatePath.addEventListener("click", () => this.getPath());
@@ -30,7 +33,7 @@ export default class CoordinateSolver {
       inputsTemplate(this.counter)
     );
     this.counter += 1;
-    drawPointsLayer(this.getCoordinates());
+    this.canvasPoints.drawPointsLayer(this.getCoordinates());
   }
 
   removeCoordinates() {}
@@ -55,7 +58,7 @@ export default class CoordinateSolver {
     emptyInputs || coordinates.length === 1
       ? alert("Fill all inputs or type at least two points!")
       : this.calculateDistances(coordinates);
-    drawPointsLayer(this.getCoordinates());
+    this.canvasPoints.drawPointsLayer(this.getCoordinates());
   }
 
   calculateDistances(coordinates) {
@@ -173,7 +176,7 @@ export default class CoordinateSolver {
       item.innerHTML = "";
     });
     this.removeInputs();
-    drawPointsLayer(this.getCoordinates());
+    this.canvasPoints.drawPointsLayer(this.getCoordinates());
   }
 
   removeInputs() {
