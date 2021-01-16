@@ -1,4 +1,5 @@
 import Canvas from "./Canvas";
+import CanvasPointsLabels from "./CanvasPointsLabels";
 
 export default class CanvasPoints extends Canvas {
   canvasPoints = document.getElementById("chart-points");
@@ -8,6 +9,7 @@ export default class CanvasPoints extends Canvas {
     super();
     this.translateGrid();
     this.clearCanvasContext = this.clearCanvasContext.bind(this);
+    this.pointsLabels = new CanvasPointsLabels();
   }
 
   translateGrid() {
@@ -17,11 +19,11 @@ export default class CanvasPoints extends Canvas {
     );
   }
 
-  drawPoint(x, y) {
-    this.canvasPointsContext.moveTo(
-      this.grid_size * x + 0.5,
-      this.grid_size * y + 0.5
-    );
+  drawPoint({ x, y }) {
+    // this.canvasPointsContext.moveTo(
+    //   this.grid_size * x + 0.5,
+    //   this.grid_size * y + 0.5
+    // );
     this.canvasPointsContext.arc(
       this.grid_size * x + 0.5,
       this.grid_size * y * -1 + 0.5,
@@ -46,7 +48,8 @@ export default class CanvasPoints extends Canvas {
     this.clearCanvasContext();
     points.forEach((point) => {
       this.canvasPointsContext.beginPath();
-      this.drawPoint(point.x, point.y);
+      this.drawPoint(point);
+      this.pointsLabels.drawLabel(point);
       this.canvasPointsContext.fillStyle = "#1e3383";
       this.canvasPointsContext.fill();
     });

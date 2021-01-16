@@ -97,3 +97,7 @@ div.result-container > p {
 .chart__canvas-points {
   z-index: 1;
 }
+
+.chart__canvas-points {
+  z-index: 2;
+}
