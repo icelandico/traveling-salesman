@@ -98,5 +98,9 @@ div.result-container > p {
   z-index: 1;
 }
 
+.chart__canvas-points {
+  z-index: 2;
+}
+
 
 /*# sourceMappingURL=/style.f58230df.css.map */

@@ -163,7 +163,7 @@ var Canvas = function Canvas() {
 };
 
 exports.default = Canvas;
-},{}],"../assets/CanvasPoints.js":[function(require,module,exports) {
+},{}],"../assets/CanvasPointsLabels.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -172,6 +172,94 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _Canvas2 = _interopRequireDefault(require("./Canvas"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var CanvasPointsLabels = /*#__PURE__*/function (_Canvas) {
+  _inherits(CanvasPointsLabels, _Canvas);
+
+  var _super = _createSuper(CanvasPointsLabels);
+
+  function CanvasPointsLabels() {
+    var _this;
+
+    _classCallCheck(this, CanvasPointsLabels);
+
+    _this = _super.call(this);
+
+    _defineProperty(_assertThisInitialized(_this), "canvasPointsLabels", document.getElementById("chart-points-labels"));
+
+    _defineProperty(_assertThisInitialized(_this), "canvasPointsLabelsContext", _this.canvasPointsLabels.getContext("2d"));
+
+    _this.translateGrid();
+
+    return _this;
+  }
+
+  _createClass(CanvasPointsLabels, [{
+    key: "translateGrid",
+    value: function translateGrid() {
+      this.canvasPointsLabelsContext.translate(this.y_axis_distance_grid_lines * this.grid_size, this.x_axis_distance_grid_lines * this.grid_size);
+    }
+  }, {
+    key: "drawLabel",
+    value: function drawLabel(_ref) {
+      var id = _ref.id,
+          x = _ref.x,
+          y = _ref.y;
+      var labelX = this.grid_size * x + 3;
+      var labelY = this.grid_size * y * -1 - 5;
+      this.canvasPointsLabelsContext.fillStyle = "#292929";
+      this.canvasPointsLabelsContext.font = "600 16px Consolas";
+      this.canvasPointsLabelsContext.fillText(id, labelX, labelY);
+    }
+  }, {
+    key: "clearCanvasContext",
+    value: function clearCanvasContext() {
+      this.canvasPointsLabelsContext.restore();
+      this.canvasPointsLabelsContext.clearRect(-this.x_axis_distance_grid_lines * this.grid_size, -this.y_axis_distance_grid_lines * this.grid_size, this.canvas_width, this.canvas_height);
+    }
+  }]);
+
+  return CanvasPointsLabels;
+}(_Canvas2.default);
+
+exports.default = CanvasPointsLabels;
+},{"./Canvas":"../assets/Canvas.js"}],"../assets/CanvasPoints.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Canvas2 = _interopRequireDefault(require("./Canvas"));
+
+var _CanvasPointsLabels = _interopRequireDefault(require("./CanvasPointsLabels"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -218,6 +306,7 @@ var CanvasPoints = /*#__PURE__*/function (_Canvas) {
     _this.translateGrid();
 
     _this.clearCanvasContext = _this.clearCanvasContext.bind(_assertThisInitialized(_this));
+    _this.pointsLabels = new _CanvasPointsLabels.default();
     return _this;
   }
 
@@ -228,13 +317,19 @@ var CanvasPoints = /*#__PURE__*/function (_Canvas) {
     }
   }, {
     key: "drawPoint",
-    value: function drawPoint(x, y) {
-      this.canvasPointsContext.moveTo(this.grid_size * x + 0.5, this.grid_size * y + 0.5);
+    value: function drawPoint(_ref) {
+      var x = _ref.x,
+          y = _ref.y;
+      // this.canvasPointsContext.moveTo(
+      //   this.grid_size * x + 0.5,
+      //   this.grid_size * y + 0.5
+      // );
       this.canvasPointsContext.arc(this.grid_size * x + 0.5, this.grid_size * y * -1 + 0.5, 6, 0, Math.PI * 2, true);
     }
   }, {
     key: "clearCanvasContext",
     value: function clearCanvasContext() {
+      this.pointsLabels.clearCanvasContext();
       this.canvasPointsContext.restore();
       this.canvasPointsContext.clearRect(-this.x_axis_distance_grid_lines * this.grid_size, -this.y_axis_distance_grid_lines * this.grid_size, this.canvas_width, this.canvas_height);
     }
@@ -247,7 +342,9 @@ var CanvasPoints = /*#__PURE__*/function (_Canvas) {
       points.forEach(function (point) {
         _this2.canvasPointsContext.beginPath();
 
-        _this2.drawPoint(point.x, point.y);
+        _this2.drawPoint(point);
+
+        _this2.pointsLabels.drawLabel(point);
 
         _this2.canvasPointsContext.fillStyle = "#1e3383";
 
@@ -260,7 +357,7 @@ var CanvasPoints = /*#__PURE__*/function (_Canvas) {
 }(_Canvas2.default);
 
 exports.default = CanvasPoints;
-},{"./Canvas":"../assets/Canvas.js"}],"../assets/CoordinateSolver.js":[function(require,module,exports) {
+},{"./Canvas":"../assets/Canvas.js","./CanvasPointsLabels":"../assets/CanvasPointsLabels.js"}],"../assets/CoordinateSolver.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -707,7 +804,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63086" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54487" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
