@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d13a4389-fecd-4941-ab64-8db58ba92b42" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/templates/inputsTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/inputsTemplate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/canvasGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/canvasGrid.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +41,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Michal.DESKTOP-M9QN5BH\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -60,11 +62,20 @@
       <workItem from="1609998902434" duration="249000" />
       <workItem from="1610301972681" duration="6633000" />
       <workItem from="1610344488439" duration="600000" />
-      <workItem from="1610645880932" duration="5821000" />
+      <workItem from="1610645880932" duration="6100000" />
+      <workItem from="1610693845107" duration="155000" />
+      <workItem from="1610820464337" duration="1559000" />
+      <workItem from="1610822574756" duration="448000" />
+      <workItem from="1610823057505" duration="109000" />
+      <workItem from="1610823181292" duration="52000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
