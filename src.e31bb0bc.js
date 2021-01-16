@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.inputsTemplate = void 0;
 
 var inputsTemplate = function inputsTemplate(counter) {
-  return "\n      <div class=\"coordinates__set-container coordinates__set-".concat(counter, " coordinates__set-added\" id=\"").concat(counter, "\">\n        <span class=\"coordinates__set-counter\">").concat(counter, ".</span>\n        <label>\n          X\n          <input type=\"text\" class=\"coords coordinate-x\">\n        </label>\n        <label>\n          Y\n          <input type=\"text\" class=\"coords coordinate-y\">\n        </label>\n        ").concat(counter >= 1 && '<span class="button button--danger coordinates__remove">Remove</span>', "\n      </div>    \n      ");
+  return "\n      <div class=\"coordinates__set-container coordinates__set-".concat(counter, " coordinates__set-added\" id=\"").concat(counter, "\">\n        <span class=\"coordinates__set-counter\">").concat(counter, ".</span>\n        <label>\n          X\n          <input type=\"text\" class=\"coords coordinate-x\">\n        </label>\n        <label>\n          Y\n          <input type=\"text\" class=\"coords coordinate-y\">\n        </label>\n      </div>    \n      ");
 };
 
 exports.inputsTemplate = inputsTemplate;
@@ -217,6 +217,7 @@ var CanvasPoints = /*#__PURE__*/function (_Canvas) {
 
     _this.translateGrid();
 
+    _this.clearCanvasContext = _this.clearCanvasContext.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -235,7 +236,7 @@ var CanvasPoints = /*#__PURE__*/function (_Canvas) {
     key: "clearCanvasContext",
     value: function clearCanvasContext() {
       this.canvasPointsContext.restore();
-      this.canvasPointsContext.clearRect(-this.x_axis_distance_grid_lines * -this.grid_size, -this.y_axis_distance_grid_lines * this.grid_size, this.canvas_width, this.canvas_height);
+      this.canvasPointsContext.clearRect(-this.x_axis_distance_grid_lines * this.grid_size, -this.y_axis_distance_grid_lines * this.grid_size, this.canvas_width, this.canvas_height);
     }
   }, {
     key: "drawPointsLayer",
@@ -316,11 +317,6 @@ var CoordinateSolver = /*#__PURE__*/function () {
       this.clearValues.addEventListener("click", function () {
         return _this.clearEntries();
       });
-      this.removeCoordinatesButton.forEach(function (button) {
-        return button.addEventListener("click", function () {
-          return _this.removeCoordinates();
-        });
-      });
     }
   }, {
     key: "createInput",
@@ -334,9 +330,6 @@ var CoordinateSolver = /*#__PURE__*/function () {
       this.counter += 1;
       this.canvasPoints.drawPointsLayer(this.getCoordinates());
     }
-  }, {
-    key: "removeCoordinates",
-    value: function removeCoordinates() {}
   }, {
     key: "areInputsNotEmpty",
     value: function areInputsNotEmpty() {
@@ -493,6 +486,7 @@ var CoordinateSolver = /*#__PURE__*/function () {
       results.forEach(function (item) {
         item.innerHTML = "";
       });
+      this.canvasPoints.clearCanvasContext();
       this.removeInputs();
       this.canvasPoints.drawPointsLayer(this.getCoordinates());
     }
@@ -515,7 +509,7 @@ var CoordinateSolver = /*#__PURE__*/function () {
 }();
 
 exports.default = CoordinateSolver;
-},{"./templates/inputsTemplate":"../assets/templates/inputsTemplate.js","./CanvasPoints":"../assets/CanvasPoints.js"}],"../assets/canvasGrid.js":[function(require,module,exports) {
+},{"./templates/inputsTemplate":"../assets/templates/inputsTemplate.js","./CanvasPoints":"../assets/CanvasPoints.js"}],"../assets/CanvasGrid.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -677,15 +671,15 @@ exports.default = CanvasGrid;
 
 var _CoordinateSolver = _interopRequireDefault(require("./../assets/CoordinateSolver"));
 
-var _canvasGrid = _interopRequireDefault(require("../assets/canvasGrid"));
+var _CanvasGrid = _interopRequireDefault(require("../assets/CanvasGrid"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var coordinateSolver = new _CoordinateSolver.default();
-var canvasGrid = new _canvasGrid.default();
+var canvasGrid = new _CanvasGrid.default();
 coordinateSolver.initListeners();
 canvasGrid.drawGrid();
-},{"./../assets/CoordinateSolver":"../assets/CoordinateSolver.js","../assets/canvasGrid":"../assets/canvasGrid.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./../assets/CoordinateSolver":"../assets/CoordinateSolver.js","../assets/CanvasGrid":"../assets/CanvasGrid.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -713,7 +707,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62741" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63086" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
