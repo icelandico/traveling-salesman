@@ -4,6 +4,11 @@ export default class CanvasPoints extends Canvas {
   canvasPoints = document.getElementById("chart-points");
   canvasPointsContext = this.canvasPoints.getContext("2d");
 
+  constructor() {
+    super();
+    this.translateGrid();
+  }
+
   translateGrid() {
     this.canvasPointsContext.translate(
       this.y_axis_distance_grid_lines * this.grid_size,
