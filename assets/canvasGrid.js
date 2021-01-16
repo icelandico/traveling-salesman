@@ -1,13 +1,13 @@
-const canvas = document.getElementById("chart-grid");
-const grid_size = 17;
-const canvas_width = canvas.width;
-const canvas_height = canvas.height;
-const num_lines_x = Math.floor(canvas_height / grid_size);
-const num_lines_y = Math.floor(canvas_width / grid_size);
-const x_axis_distance_grid_lines = Math.floor(num_lines_x / 2);
-const y_axis_distance_grid_lines = Math.floor(num_lines_y / 2);
-
 export default class CanvasGrid {
+  canvas = document.getElementById("chart-grid");
+  grid_size = 17;
+  canvas_width = this.canvas.width;
+  canvas_height = this.canvas.height;
+  num_lines_x = Math.floor(this.canvas_height / this.grid_size);
+  num_lines_y = Math.floor(this.canvas_width / this.grid_size);
+  x_axis_distance_grid_lines = Math.floor(this.num_lines_x / 2);
+  y_axis_distance_grid_lines = Math.floor(this.num_lines_y / 2);
+
   drawGrid() {
     const ctx = canvas.getContext("2d");
     const x_axis_starting_point = 1;
@@ -19,15 +19,15 @@ export default class CanvasGrid {
       ctx.lineWidth = 1;
 
       // If line represents X-axis draw in different color
-      if (i === x_axis_distance_grid_lines) ctx.strokeStyle = "#000000";
+      if (i === this.x_axis_distance_grid_lines) ctx.strokeStyle = "#000000";
       else ctx.strokeStyle = "#acacac";
 
       if (i === num_lines_x) {
-        ctx.moveTo(0, grid_size * i);
-        ctx.lineTo(canvas_width, grid_size * i);
+        ctx.moveTo(0, this.grid_size * i);
+        ctx.lineTo(this.canvas_width, this.grid_size * i);
       } else {
-        ctx.moveTo(0, grid_size * i + 0.5);
-        ctx.lineTo(canvas_width, grid_size * i + 0.5);
+        ctx.moveTo(0, this.grid_size * i + 0.5);
+        ctx.lineTo(this.canvas_width, this.grid_size * i + 0.5);
       }
       ctx.stroke();
     }
@@ -130,43 +130,4 @@ export default class CanvasGrid {
       ctx.fillText(`${y_axis_starting_point * i}`, 8, -grid_size * i + 3);
     }
   }
-}
-
-const canvasPoints = document.getElementById("chart-points");
-const canvasPointsContext = canvasPoints.getContext("2d");
-canvasPointsContext.translate(
-  y_axis_distance_grid_lines * grid_size,
-  x_axis_distance_grid_lines * grid_size
-);
-
-function drawPoint(x, y) {
-  canvasPointsContext.moveTo(grid_size * x + 0.5, grid_size * y + 0.5);
-  canvasPointsContext.arc(
-    grid_size * x + 0.5,
-    grid_size * y * -1 + 0.5,
-    6,
-    0,
-    Math.PI * 2,
-    true
-  );
-}
-
-function clearCanvasContext() {
-  canvasPointsContext.restore();
-  canvasPointsContext.clearRect(
-    -x_axis_distance_grid_lines * grid_size,
-    -y_axis_distance_grid_lines * grid_size,
-    canvas_width,
-    canvas_height
-  );
-}
-
-function drawPointsLayer(points) {
-  clearCanvasContext();
-  points.forEach((point) => {
-    canvasPointsContext.beginPath();
-    drawPoint(point.x, point.y);
-    canvasPointsContext.fillStyle = "#1e3383";
-    canvasPointsContext.fill();
-  });
 }
