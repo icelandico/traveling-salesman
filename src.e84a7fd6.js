@@ -11,4 +11,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./Canvas":"Q7RM"}],"Focm":[function(require,module,exports) {
 "use strict";var e=s(require("./../assets/CoordinateSolver")),r=s(require("../assets/canvasGrid"));function s(e){return e&&e.__esModule?e:{default:e}}var t=new e.default,a=new r.default;t.initListeners(),a.drawGrid();
 },{"./../assets/CoordinateSolver":"qCm6","../assets/canvasGrid":"O34x"}]},{},["Focm"], null)
-//# sourceMappingURL=/traveling-salesman/src.e84a7fd6.js.map
+//# sourceMappingURL=/src.e84a7fd6.js.map
