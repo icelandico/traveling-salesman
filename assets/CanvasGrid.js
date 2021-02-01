@@ -105,7 +105,6 @@ export default class CanvasGrid extends Canvas {
     }
 
     for (let i = 1; i < this.x_axis_distance_grid_lines; i++) {
-      console.log(this.x_axis_distance_grid_lines);
       ctx.beginPath();
       ctx.lineWidth = 1;
       ctx.strokeStyle = "#000000";
